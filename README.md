@@ -24,12 +24,14 @@
   - DX-LR20(LLCC68): PIN5需阻焊
 
 PIN5用綠油或高溫膠布進行絕緣阻焊
-
-## ADC分壓電阻焊接位置:
-
-
-
 ![image](image/PIN5_阻焊.png)      
+
+## ADC分壓電阻焊接位置:  
+![image](fake_yuri_PCB/faketec_yuri_pcb.png)
+
+電阻比例為 2:3 (常見為1M:1.5M, 我自己則是使用470K & 680K)
+
+
 
 ## 功能模块
 ### 1. 集成太阳能充电
