@@ -1,153 +1,104 @@
-# Meshtastic 低成本控制器开源项目
+# FaketeYuri 組裝指南
+
+感謝大陸網友無私開發此PCB版，個人已成功完成下列模塊組裝
 
 
-![image](image/20250116_220224.JPG)  
-
-## 项目简介
-基于Meshtastic协议的低成本通信控制器解决方案，集成太阳能充电、GPS定位和LoRa通信功能，适用于物联网、野外通信等场景。尤其使用与太阳能节点。
-并且这个项目一个PCB就可以兼容几乎市场上可以买到的（可以薅羊毛的）所有模块。
-
-该项目源自https://github.com/gargomoma/fakeTec_pcb.
-
-## 与fake对比
-
-![image](image/20250114_01.jpg)  
-
-## E22-900M22S系列模塊焊接補充說明:
-  
-  - E22-900M22S(SX126X): PIN5不需阻焊
-  
-  - E220-900M22S(LLCC68): PIN5需阻焊
-  
-  - DX-LR30(SX1262): PIN5需阻焊
-  
-  - DX-LR20(LLCC68): PIN5需阻焊
-
-PIN5用綠油或高溫膠布進行絕緣阻焊
-![image](image/PIN5_阻焊.png)      
-
-## ADC分壓電阻焊接位置:  
-![image](fake_yuri_PCB/faketec_yuri_pcb.png)
-
-電阻比例為 2:3 (常見為1M:1.5M, 我自己則是使用470K & 680K)
+![封面圖](image/20250116_220224.JPG)
 
 
+### 4. LoRa 模組支援清單
 
-## 功能模块
-### 1. 集成太阳能充电
+| 廠家 | 型號 | 備註 / 連結 |
+| :--- | :--- | :--- |
+| **成都億佰特** | E22-400M22S | [購買連結](https://item.taobao.com/item.htm?id=571626367408&_u=e1fg9toef8a) |
+| **成都億佰特** | E22-400MM22S | [購買連結](https://item.taobao.com/item.htm?id=571626367408&_u=e1fg9toef8a) |
+| **深圳矽傳** | SX1268ZTR4 (433 MHz) | 拿樣含彈簧天線｜[購買連結](https://item.taobao.com/item.htm?id=631724138123&_u=e1fg9to418f) |
+| **河南安信可** | Ra-01S (SX1268) | 含彈簧天線｜[購買連結](https://item.taobao.com/item.htm?id=627657133308&_u=e1fg9toe418) |
+| **惠特自動化** | RA62 (SX1262, 433–510 MHz) | 尚未實測，理論可行｜[購買連結](https://item.taobao.com/item.htm?id=687692791680&_u=e1fg9toe418) |
 
-  - [CN3163充电管理IC](https://item.szlcsc.com/582671.html?fromZone=s_s__%2522C559031%2522&spm=sc.gb.xh1.zy.n___sc.hm.hd.ss&t=1739525886502&s=1739525886502&lcsc_vid=FgJaXlFRTwdWBgAAEVBdAlEARwMIVVxUFVENAQdTRAAxVlNVTlRcUlxfR1FbXjtW)
-  
-  - 温度保护范围：0-55°C（板载NTC设定）
-  
-  - 可拆除NTC,替换为电池内部NTC
-  
-  - 限流电阻：1.2KΩ（1000mA）
-  
-  - 充电恒压电压：4.2V
-  
-  - 输入电压:4.4~6V
-  
-  - 充电状态和充电结束状态双指示输出
+## 專案簡介
 
+本專案為基於 Meshtastic 協定的低成本通訊控制器解決方案，整合太陽能充電、GPS 定位與 LoRa 通訊功能，適用於物聯網、野外通訊等場景，特別適用於太陽能節點。
 
-### 2. 集成外部通知部件 External Notification
+此外，本專案只需單一 PCB 即可相容市面上幾乎所有可購買（或能取得樣品）的 LoRa 模組。
 
-蜂鸣器
-- 通过MOS管驱动蜂鸣器（增加了续流二极管)（38）
-  需要在Device页面以及External Notification页面同时配置为38
+> **專案來源**：本專案衍生自 [gargomoma/fakeTec_pcb](https://github.com/gargomoma/fakeTec_pcb)。
 
-LED
-- 外部白色LED（33）
-  只需在External Notification页面配置为33
+---
 
-用户按键
-- 按键KEY，引脚（32）默认
-  无需配置
+---
 
-GPS开关
-- 通过MOS管驱动GPS开关
-  Position页配置TX为"20"、RX为"22"、EN为"24"
+## E22-900M22S 系列模組焊接補充說明
 
+各模組於 **PIN5** 腳位之絕緣阻焊需求如下：
 
-### 3. GPS硬件
-| 组件 | 型号 | 备注 |
-| :------------ | :---------------------------- | :---------------------------- |
-| 主控 | ProMicro NRF52840 | [Promicro NRF52840开发板排针无焊](https://item.taobao.com/item.htm?id=752027856883&_u=e1fg9to98d5) |
-| GPS | ATGM336H-5N71 | [gps模块北斗3单片机ATGM336H-5N71模块+天线](https://item.taobao.com/item.htm?id=649721823963&_u=e1fg9to3077) |
-| 屏幕 | 0.96" SSD1306 OLED | [0.96寸oled显示屏模块iic接口](https://item.taobao.com/item.htm?id=537849751788&_u=e1fg9to677b) |
+- **E22-900M22S (SX126X)**：PIN5 **不需**阻焊
+- **E220-900M22S (LLCC68)**：PIN5 **需**阻焊
+- **DX-LR30 (SX1262)**：PIN5 **需**阻焊
+- **DX-LR20 (LLCC68)**：PIN5 **需**阻焊
+
+> **注意事項**：PIN5 請使用綠油或高溫膠帶進行絕緣阻焊。
+
+![PIN5 阻焊示意圖](image/PIN5_阻焊.png)
+
+---
+
+## ADC 分壓電阻焊接位置
+
+![ADC 分壓電阻位置](fake_yuri_PCB/faketec_yuri_pcb.png)
+
+- **電阻比例**：`2 : 3`
+- **常用規格**：常見為 `1 MΩ : 1.5 MΩ`；實測亦可使用 `470 kΩ` 與 `680 kΩ`。
+
+---
+
+## 功能模組
+
+### 1. 整合太陽能充電
+
+- **充電管理 IC**：[CN3163 充電管理晶片](https://item.szlcsc.com/582671.html?fromZone=s_s__%2522C559031%2522&spm=sc.gb.xh1.zy.n___sc.hm.hd.ss&t=1739525886502&s=1739525886502&lcsc_vid=FgJaXlFRTwdWBgAAEVBdAlEARwMIVVxUFVENAQdTRAAxVlNVTlRcUlxfR1FbXjtW)
+- **溫度保護範圍**：`0 – 55°C`（由板載 NTC 設定）
+- **NTC 彈性設計**：可拆除板載 NTC，替換為電池內部內建的 NTC
+- **限流電阻**：`1.2 kΩ`（對應充電電流 `1000 mA`）
+- **充電恆壓電壓**：`4.2 V`
+- **輸入電壓範圍**：`4.4 – 6 V`
+- **狀態指示**：具備充電中與充電完成之雙狀態指示輸出
+
+---
 
 
 
-### 4. LoRa模块
-LoRa模块支持
-| 厂家 | 型号 | 备注 |
-| :------------ | :---------------------------- | :---------------------------- |
-| 成都亿佰特 | E22-400M22S | [购买链接](https://item.taobao.com/item.htm?id=571626367408&_u=e1fg9toef8a) |
-| 成都亿佰特 | E22-400MM22S | [购买链接](https://item.taobao.com/item.htm?id=571626367408&_u=e1fg9toef8a) |
-| 深圳硅传 | SX1268ZTR4(433MHz)_拿样(含弹簧) | [购买链接](https://item.taobao.com/item.htm?id=631724138123&_u=e1fg9to418f) |
-| 河南安信可 | SX1268_Ra-01S含弹簧天线 | [购买链接](https://item.taobao.com/item.htm?id=627657133308&_u=e1fg9toe418) |
-| 惠特自动化 | RA62模块SX1262(433-510MHz) | 没有测试,理论上可以用 [购买链接](https://item.taobao.com/item.htm?id=687692791680&_u=e1fg9toe418) |
+> 💡 **天線剪裁技巧**：若購買安信可 `Ra-01S` 隨附的 `433 MHz` 彈簧天線，自行剪去 **3.5 圈** 即可調整頻率至約 `480 MHz`。
 
-如果买 安信可SX1268_Ra-01S含弹簧天线,买到的天线是433的话,自己剪去3圈半就变成480了.
+---
+
+### 5. 版本更新紀錄
+
+#### v1.1 改善項目
+- **消除漏電**：新增 MOS 管下拉電阻。
+- **線路優化**：調整 GPS 插座腳位順序，可直接對接 ATGM336H 模組。
+- **充電調升**：太陽能充電電流提升至 `1 A`。（*備註：若使用容量小於 `1 Ah` 的電池，需將充電電流調小，建議設為電池容量的 `0.2 – 0.5` 倍*）。
+- **品牌識別**：新增 MeshCN LOGO 圖樣。
+
+---
 
 
-### 5. 版本更新
-v1.1 改进内容
+### 2. PCB 圖紙
+- **實物圖**：  
+  ![PCB 實物圖](image/20250115_203856.JPG)
+- **渲染圖**：  
+  ![PCB 上層](fake_yuri_PCB/PCB_TOP.JPG) ![PCB 下層](fake_yuri_PCB/PCB_BOM.JPG)
+- **原理圖**：  
+  ![原理圖](image/faketecyuri.png)
 
-- 增加MOS管下拉电阻，消除漏电流
+### 3. 測試數據與物料清單 (BOM)
+- **功耗測試數據**：[MeshCN LoRa RF 模組功耗測試報告](https://meshcn.net/Meshtastic-LoRa-RF-Module-Power-Consumption-Test/)
+- **貼片物料表**：[BOM_faketec52840.xls (GitHub)](https://github.com/Yurisu/meshtastic-faketecyuri/blob/main/fake_yuri_PCB/BOM_faketec52840.xls)
+- **通訊距離實測數據**：（待補充）
 
-- GPS插座排序修改可以直接对ATGM336H模块
-
-- 太阳能充电电流提升至1A,注意电池容量小于1Ah的需要把电流改小，一般是电池容量的0.2~0.5倍较为合适
-
-- 增加了MeshCN LOGO 
-
-### 6. 快速入门
-
-硬件焊接指南
-
-![image](image/20250114_003653.JPG)    ![image](image/20250114_003659.JPG)  
-![image](image/20250114_005227.JPG)    ![image](image/20250114_005517.JPG)  
-
-PCB实物图
-
-![image](image/20250115_203856.JPG)  
-
-PCB渲染图
- 
-![image](fake_yuri_PCB/PCB_TOP.JPG)  ![image](fake_yuri_PCB/PCB_BOM.JPG)  
-
-原理图 
-
-![image](image/faketecyuri.png)  
-
-功耗测试数据
-  https://meshcn.net/Meshtastic-LoRa-RF-Module-Power-Consumption-Test/
-
-贴片物料表
-  https://github.com/Yurisu/meshtastic-faketecyuri/blob/main/fake_yuri_PCB/BOM_faketec52840.xls
-
-通信距离实测数据
-
-Bootloader
-  https://nicekeyboards.com/docs/nice-nano/getting-started/
-  CMD:
+### 4. Bootloader 燒錄指南
+- **說明文件**：[nice!nano Getting Started](https://nicekeyboards.com/docs/nice-nano/getting-started/)
+- **燒錄指令**：
+  ```bash
   adafruit-nrfutil dfu serial -p COM26 -pkg nice_nano_bootloader-0.9.2_s140_6.1.1.zip
-
-
-Meshtastic固件编译指南
-
-已验证的硬件组合
-
-已知兼容性问题说明
-
-预留IO口功能定义
-
-传感器扩展方案
-
-社区支持信息
-https://meshcn.net/
-
-贡献者指南
-
+  ```
