@@ -2,7 +2,6 @@
 
 | promicro NRF52840 | LORA PIN | E-BYTE<br>E22-900M22S<br>(`SX126X`) | E-BYTE<br>E220-900M22S<br>(**`LLCC68`**) | 大夏龍雀<br>DX-LR30<br>(**`SX1262`**) | 大夏龍雀<br>DX-LR20<br>(**`LLCC68`**) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **射頻切換模式** | | **外部** | **外部** | **外部** | **外部** |
 | | PIN 1 | GND | GND | GND | GND |
 | | PIN 2 | GND | GND | GND | GND |
 | | PIN 3 | GND | GND | GND | GND |
