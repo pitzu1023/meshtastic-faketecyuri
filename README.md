@@ -1,9 +1,22 @@
 # FaketeYuri 組裝指南
 
-感謝大陸網友無私開發此PCB版，個人已成功完成模塊組裝並上線穩定運行
-台灣嗶波嗶波系列節點，多數藉由此PCB搭配各廠家 LORA模塊組裝完成
+感謝大陸網友無私開發此PCB版 [連結](https://github.com/Yurisu/meshtastic-faketecyuri) <br>
 
-目前搭配過的模塊有:
+我利用此PCB搭配多款900Mhz Lora組裝成meshtastic節點穩定上線多時。<br>
+在此分享在DIY時需要注意的地方，希望可以推廣"便宜治百病"的節點製作方式<br>
+
+## 個人經驗: 
+- 收訊品質: 節點位置對於遠大於 "模塊的選擇"
+- 我的解決方案: ProMicro (14 RMB) + 4~10 RMB Lora模塊 + CN3163 0.5RMB +  ATH20+BMP280溫濕度傳感器 (3 RMB), 總價 200台幣內
+- 多數妹婿推廣 XIAO nRF52840 + Wio-SX1262 , 優點組裝容易但是所費不貲(兩個加起來約600-700台幣)
+- 管他黑貓白貓，只要會抓老鼠的，就是好貓
+  
+PS: 嗶波嗶波系列節點，多數都是搭配這塊PCB版製作而成，穩定運行，幾個幾點我6月放到現在(11月)沒去巡過至今頭好壯壯。<br>
+
+
+<img src="fake_yuri_PCB/top.png" alt="PCB正面" width="200"> <img src="fake_yuri_PCB/bottom.png" alt="PCB反面" width="200">
+
+## 模塊使用經驗:
 
 | 廠家 | 型號 | 晶片 | 入手價 |
 | :--- | :--- | :--- |:--- |
@@ -13,53 +26,17 @@
 | **惠特自動化** | HT-RA62 |  SX1262 | 21.9 RMB |
 | **河南安信可** | RA-01SH-P |  SX1262 | |
 
-個人經驗: 節點位置遠比模塊型號重要大得多，所以組裝，還是"便宜治百病"
+## 模組焊接補充說明
 
-透過這款PCB，我實作 :LORA + 太陽能充電IC + 溫溼度SENSOR, 整個組裝起來成本 可以壓在150台幣左右。
-比起其他網友用XIAO NRF52840系列，便宜好幾倍。管他黑貓白貓，只要會抓老鼠的，就是好貓
+| 型號 | LORA悍盤阻焊說明 | 
+| :--- | :--- | 
+| **E22-900M22S** | PIN5 **不需**阻焊 |
+| **E220-900M22S** | PIN5 **需**阻焊 |
+| **DX-LR30** | PIN5 **需**阻焊 |
+| **DX-LR20** | PIN5 **需**阻焊 |
+| RA-01SH-P |3處需阻焊, 詳細請參考圖片 |
 
-
-
-
-![封面圖](image/20250116_220224.JPG)
-
-
-### 4. LoRa 模組支援清單
-
-| 廠家 | 型號 | 備註 / 連結 |
-| :--- | :--- | :--- |
-| **成都億佰特** | E22-400M22S | [購買連結](https://item.taobao.com/item.htm?id=571626367408&_u=e1fg9toef8a) |
-| **成都億佰特** | E22-400MM22S | [購買連結](https://item.taobao.com/item.htm?id=571626367408&_u=e1fg9toef8a) |
-| **深圳矽傳** | SX1268ZTR4 (433 MHz) | 拿樣含彈簧天線｜[購買連結](https://item.taobao.com/item.htm?id=631724138123&_u=e1fg9to418f) |
-| **河南安信可** | Ra-01S (SX1268) | 含彈簧天線｜[購買連結](https://item.taobao.com/item.htm?id=627657133308&_u=e1fg9toe418) |
-| **惠特自動化** | RA62 (SX1262, 433–510 MHz) | 尚未實測，理論可行｜[購買連結](https://item.taobao.com/item.htm?id=687692791680&_u=e1fg9toe418) |
-
-## 專案簡介
-
-本專案為基於 Meshtastic 協定的低成本通訊控制器解決方案，整合太陽能充電、GPS 定位與 LoRa 通訊功能，適用於物聯網、野外通訊等場景，特別適用於太陽能節點。
-
-此外，本專案只需單一 PCB 即可相容市面上幾乎所有可購買（或能取得樣品）的 LoRa 模組。
-
-> **專案來源**：本專案衍生自 [gargomoma/fakeTec_pcb](https://github.com/gargomoma/fakeTec_pcb)。
-
----
-
----
-
-## E22-900M22S 系列模組焊接補充說明
-
-各模組於 **PIN5** 腳位之絕緣阻焊需求如下：
-
-- **E22-900M22S (SX126X)**：PIN5 **不需**阻焊
-- **E220-900M22S (LLCC68)**：PIN5 **需**阻焊
-- **DX-LR30 (SX1262)**：PIN5 **需**阻焊
-- **DX-LR20 (LLCC68)**：PIN5 **需**阻焊
-
-> **注意事項**：PIN5 請使用綠油或高溫膠帶進行絕緣阻焊。
-
-![PIN5 阻焊示意圖](image/PIN5_阻焊.png)
-
----
+> **注意事項**：使用綠油或高溫膠帶進行絕緣阻焊。
 
 ## ADC 分壓電阻焊接位置
 
@@ -81,42 +58,3 @@
 - **充電恆壓電壓**：`4.2 V`
 - **輸入電壓範圍**：`4.4 – 6 V`
 - **狀態指示**：具備充電中與充電完成之雙狀態指示輸出
-
----
-
-
-
-> 💡 **天線剪裁技巧**：若購買安信可 `Ra-01S` 隨附的 `433 MHz` 彈簧天線，自行剪去 **3.5 圈** 即可調整頻率至約 `480 MHz`。
-
----
-
-### 5. 版本更新紀錄
-
-#### v1.1 改善項目
-- **消除漏電**：新增 MOS 管下拉電阻。
-- **線路優化**：調整 GPS 插座腳位順序，可直接對接 ATGM336H 模組。
-- **充電調升**：太陽能充電電流提升至 `1 A`。（*備註：若使用容量小於 `1 Ah` 的電池，需將充電電流調小，建議設為電池容量的 `0.2 – 0.5` 倍*）。
-- **品牌識別**：新增 MeshCN LOGO 圖樣。
-
----
-
-
-### 2. PCB 圖紙
-- **實物圖**：  
-  ![PCB 實物圖](image/20250115_203856.JPG)
-- **渲染圖**：  
-  ![PCB 上層](fake_yuri_PCB/PCB_TOP.JPG) ![PCB 下層](fake_yuri_PCB/PCB_BOM.JPG)
-- **原理圖**：  
-  ![原理圖](image/faketecyuri.png)
-
-### 3. 測試數據與物料清單 (BOM)
-- **功耗測試數據**：[MeshCN LoRa RF 模組功耗測試報告](https://meshcn.net/Meshtastic-LoRa-RF-Module-Power-Consumption-Test/)
-- **貼片物料表**：[BOM_faketec52840.xls (GitHub)](https://github.com/Yurisu/meshtastic-faketecyuri/blob/main/fake_yuri_PCB/BOM_faketec52840.xls)
-- **通訊距離實測數據**：（待補充）
-
-### 4. Bootloader 燒錄指南
-- **說明文件**：[nice!nano Getting Started](https://nicekeyboards.com/docs/nice-nano/getting-started/)
-- **燒錄指令**：
-  ```bash
-  adafruit-nrfutil dfu serial -p COM26 -pkg nice_nano_bootloader-0.9.2_s140_6.1.1.zip
-  ```
