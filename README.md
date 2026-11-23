@@ -11,7 +11,7 @@
 - 多數妹婿推廣 XIAO nRF52840 + Wio-SX1262 , 優點組裝容易但是所費不貲(兩個加起來約600-700台幣)
 - 管他黑貓白貓，只要會抓老鼠的，就是好貓
   
-PS: 嗶波嗶波系列節點，多數都是搭配這塊PCB版製作而成，穩定運行，幾個幾點我6月放到現在(11月)沒去巡過至今頭好壯壯。<br>
+PS: 嗶波嗶波系列節點，多數都是搭配這塊PCB版製作，實測下來皆可穩定運行。<br>
 
 
 <img src="fake_yuri_PCB/top.png" alt="PCB正面" width="200"> <img src="fake_yuri_PCB/bottom.png" alt="PCB反面" width="200">
